@@ -6,21 +6,21 @@ pipeline {
         }
         stage('checkout') {
             steps {
-                echo 'Check out code...'
+                
                 checkout scm
             }
         }
         stage('test') {
             steps {
-                echo 'Testing...'
-                sh'node -v'
-                sh'npm -v'
+               
+                sh 'node -v'
+                sh 'npm -v'
             }
         }
          stage('Build') {
             steps {
-                echo 'npm run build...'
-                echo 'Build completed successfully!'
+                sh 'npm run build'
+               
             }
         }
     }
