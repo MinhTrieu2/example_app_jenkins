@@ -1,0 +1,19 @@
+{
+  "name": "apps",
+  "version": "1.0.0",
+ "description": "example apps with jenkins",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "build":"echo 'Building the application...'"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "mocha": "^11.7.1"
+  }
+}
