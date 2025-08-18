@@ -10,7 +10,7 @@ pipeline {
                 checkout scm
             }
         }
-        stage('test') {
+        stage('Test') {
             steps {
                 echo 'Testing...'
                 sh'node -v'
@@ -21,6 +21,12 @@ pipeline {
             steps {
                 echo 'npm run build...'
                 echo 'Build completed successfully!'
+            }
+        }
+        stage('Build Docker Image') {
+            steps {
+                
+                sh 'docker build -t my-node-app:1.0 .'
             }
         }
     }
