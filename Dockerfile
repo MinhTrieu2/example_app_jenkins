@@ -1,4 +1,4 @@
-FROM node:laetest
+FROM node:latest
 WORKDIR /apps
 COPY . /apps
 RUN npm install && npm run build
