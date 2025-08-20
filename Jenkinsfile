@@ -5,7 +5,7 @@ pipeline {
         nodejs 'NodeJs'   // Tên phải đúng với Global Tool Configuration
     }
     environment {
-        DOCKER_HUB_REPO = 'minhtrieun/test_push'
+        DOCKER_HUB_REPO = 'my-node-app'
     }
 
     stages {
