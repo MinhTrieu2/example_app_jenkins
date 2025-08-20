@@ -34,7 +34,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t my-node-app:1.0 .'
+                sh 'docker build -t ${DOCKER_HUB_REPO}:1.0 .'
             }
         }
         stage('Push to Docker Hub') {
