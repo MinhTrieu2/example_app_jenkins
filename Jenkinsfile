@@ -4,6 +4,9 @@ pipeline {
     tools {
         nodejs 'NodeJs'   // Tên phải đúng với Global Tool Configuration
     }
+    environment {
+        DOCKER_HUB_REPO = 'minhtrieun/test_push'
+    }
 
     stages {
         stage('Checkout') {
@@ -32,6 +35,23 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t my-node-app:1.0 .'
+            }
+        }
+        stage('Push to Docker Hub') {
+            steps {
+                script {
+                    withCredentials([usernamePassword(credentialsId: 'testpush', 
+                    usernameVariable: 'DOCKER_USERNAME', 
+                    passwordVariable: 'DOCKER_PASSWORD')]) 
+                    {
+                       sh '''
+                       echo $DOCKER_PASSWORD docker login -u $DOCKER_USERNAME --password-stdin
+                       docker push $DOCKER_HUB_REPO:1.0
+                       docker logout
+                       
+'''
+                    }
+                }
             }
         }
     }
